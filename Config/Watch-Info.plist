@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0"><dict>
+    <key>CFBundleDisplayName</key><string>GelLink</string>
+    <key>CFBundleExecutable</key><string>$(EXECUTABLE_NAME)</string>
+    <key>CFBundleIdentifier</key><string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+    <key>CFBundleName</key><string>$(PRODUCT_NAME)</string>
+    <key>CFBundlePackageType</key><string>APPL</string>
+    <key>CFBundleShortVersionString</key><string>$(MARKETING_VERSION)</string>
+    <key>CFBundleVersion</key><string>$(CURRENT_PROJECT_VERSION)</string>
+    <key>WKApplication</key><true/>
+    <key>WKCompanionAppBundleIdentifier</key><string>$(GELLINK_BUNDLE_ID)</string>
+    <key>WKRunsIndependentlyOfCompanionApp</key><false/>
+    <key>NSHealthShareUsageDescription</key><string>計測中の心拍と最新の心拍変動を読み取り、iPhoneに送って触覚ゲルを制御します。</string>
+    <key>NSHealthUpdateUsageDescription</key><string>計測をマインド＆ボディのワークアウトとして記録し、心拍と消費エネルギーをヘルスケアに保存します。</string>
+    <key>WKBackgroundModes</key><array><string>workout-processing</string></array>
+</dict></plist>

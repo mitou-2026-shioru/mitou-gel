@@ -1,0 +1,117 @@
+{
+  "features": [
+    "active_ratio",
+    "rms_global",
+    "dbfs_global",
+    "rms_active_p50",
+    "rms_active_p90",
+    "dbfs_active_p50",
+    "dbfs_active_p90",
+    "crest_factor",
+    "voiced_ratio",
+    "pitch_active_p50",
+    "pitch_active_p75",
+    "pitch_active_p90",
+    "pitch_active_range",
+    "pitch_active_std",
+    "pitch_active_slope",
+    "pitch_active_delta_mean_abs",
+    "pitch_active_delta_std",
+    "pitch_active_rising_ratio",
+    "harmonicity_active_p50",
+    "harmonicity_active_p75",
+    "zcr_active_p50",
+    "zcr_active_p75",
+    "zcr_active_p90",
+    "centroid_active_p50",
+    "centroid_active_p75",
+    "centroid_active_p90",
+    "bandwidth_active_p50",
+    "bandwidth_active_p75",
+    "bandwidth_active_p90",
+    "rolloff85_active_p50",
+    "rolloff85_active_p75",
+    "rolloff85_active_p90",
+    "high_ratio_active_p50",
+    "high_ratio_active_p75",
+    "high_ratio_active_p90",
+    "mid_ratio_active_p50",
+    "mid_ratio_active_p75",
+    "mid_ratio_active_p90",
+    "band80_250_ratio_active_p50",
+    "band80_250_ratio_active_p75",
+    "band80_250_ratio_active_p90",
+    "band250_500_ratio_active_p50",
+    "band250_500_ratio_active_p75",
+    "band250_500_ratio_active_p90",
+    "band500_1000_ratio_active_p50",
+    "band500_1000_ratio_active_p75",
+    "band500_1000_ratio_active_p90",
+    "band1000_2000_ratio_active_p50",
+    "band1000_2000_ratio_active_p75",
+    "band1000_2000_ratio_active_p90",
+    "band2000_4000_ratio_active_p50",
+    "band2000_4000_ratio_active_p75",
+    "band2000_4000_ratio_active_p90",
+    "band4000_8000_ratio_active_p50",
+    "band4000_8000_ratio_active_p75",
+    "band4000_8000_ratio_active_p90",
+    "spectral_tilt_active_p50",
+    "spectral_tilt_active_p75",
+    "spectral_tilt_active_p90",
+    "flatness_active_p50",
+    "flatness_active_p75",
+    "flatness_active_p90",
+    "flux_active_p50",
+    "flux_active_p75",
+    "flux_active_p90",
+    "energy_active_range",
+    "energy_active_slope",
+    "energy_active_peak_count"
+  ],
+  "classes": [
+    "anger",
+    "disgust",
+    "fear",
+    "joy",
+    "neutral",
+    "sadness"
+  ],
+  "prototypes": {
+    "joy": {
+      "valence": 0.78,
+      "arousal": 0.68
+    },
+    "anger": {
+      "valence": -0.82,
+      "arousal": 0.78
+    },
+    "fear": {
+      "valence": -0.62,
+      "arousal": 0.62
+    },
+    "disgust": {
+      "valence": -0.78,
+      "arousal": 0.08
+    },
+    "sadness": {
+      "valence": -0.54,
+      "arousal": -0.46
+    },
+    "neutral": {
+      "valence": 0.0,
+      "arousal": 0.0
+    }
+  },
+  "source_repository": "mitou-2026-shioru/tiny-lm",
+  "source_revision": "174adc8a89adc43ab94eb4a95b4fdc0edaa508aa",
+  "source_path": "public/circumplex-model.json",
+  "source_sha256": "9f2e957d8f0114fec95c6aaf6dbd2887498662eeefe44953b47626fd5e90de7e",
+  "coremltools_version": "9.0",
+  "conversion_check": {
+    "cases": 33,
+    "maximum_probability_error": 4.632761577694211e-07
+  },
+  "source_license": "No LICENSE file found; redistribution terms unconfirmed",
+  "evaluation": "Japanese live microphone accuracy unverified"
+}

@@ -1,0 +1,2 @@
+GELLINK_BUNDLE_ID = org.mitou.GelLink
+#include? "Local.xcconfig"
