@@ -1,824 +1,587 @@
 // !$*UTF8*$!
 {
-	"archiveVersion" = "1";
-	"classes" = {
+	archiveVersion = 1;
+	classes = {
 	};
-	"objectVersion" = "56";
-	"objects" = {
-		"2C05540ACF8AD68B330D4E16" = {
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"path" = "AffectFusion.swift";
-			"sourceTree" = "<group>";
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		01F628DAF8957FBF38A5679C /* AudioInputLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0384FBD0635B79C5536B00 /* AudioInputLevel.swift */; };
+		0D7B4DB976B92B330E90A0B1 /* SpeechModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E55401FB721C828F672BAD0 /* SpeechModel.swift */; };
+		1146F1F5464F32B38AEFAA77 /* WatchSessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3C06053BB42C71F3F000B0 /* WatchSessionView.swift */; };
+		1423A0EA6DBE995232206ADF /* AudioEmotionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFB7A4494867EBA21D49268 /* AudioEmotionModel.swift */; };
+		1BF5F80911474A8AA7A3A47A /* AffectFusion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C05540ACF8AD68B330D4E16 /* AffectFusion.swift */; };
+		296D3B8296549189192C219A /* WatchSessionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23152BF187943F6DDD9642F5 /* WatchSessionModel.swift */; };
+		39BAAC5724AD4B458F0B9F85 /* VoicePipeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4FEF2931B5A968D5773EA3 /* VoicePipeline.swift */; };
+		3C2749DCAF6F31E6800A0610 /* AffectFusion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C05540ACF8AD68B330D4E16 /* AffectFusion.swift */; };
+		50A4C4673A61849FC827E340 /* GelLinkApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FA29EA520D96ED18808237 /* GelLinkApp.swift */; };
+		6648E1D97566FCA613AA8F25 /* CircumplexAudioFeatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A32502EC905AEBA317988AF /* CircumplexAudioFeatures.swift */; };
+		686051355E4ED31ABA1A622C /* SignalPipeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1B3CDABFAC060B7F25813F /* SignalPipeline.swift */; };
+		6A3B40D87FDEEFF8D1839658 /* WatchBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F3FED46FA91D468BAD41344 /* WatchBridge.swift */; };
+		6C99BA16335928FCB8CA8F35 /* LabModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152B73CE97EBF9F8CCC6B28C /* LabModel.swift */; };
+		7BDE941823198E67C80A3D05 /* HapticWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF61ACF4983C6EF2B09B76B /* HapticWindow.swift */; };
+		80CA927B17178739F9F4FCC6 /* WatchBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F3FED46FA91D468BAD41344 /* WatchBridge.swift */; };
+		8B63287BD249EE095A107115 /* HealthReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE510C9F1A00A055B5C0267 /* HealthReader.swift */; };
+		8F20472124020C72C91CF37D /* VoiceCircumplex.json in Resources */ = {isa = PBXBuildFile; fileRef = D2B1CBC211B1C9BE17D819B6 /* VoiceCircumplex.json */; };
+		8FD7E47591B999F9F789B7B5 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794CDC2D1145E96C6B308B68 /* Models.swift */; };
+		911E5DF42E1AB1BF5280803A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73118E6630A44D6C6D19135B /* Assets.xcassets */; };
+		9160C4A57BD46B50D2242EF0 /* ConversationPipeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7146229C58DCE5F69A4E39 /* ConversationPipeline.swift */; };
+		92394C99536A79A3227FB907 /* CircumplexAudioFeatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A32502EC905AEBA317988AF /* CircumplexAudioFeatures.swift */; };
+		92C564F34EC4A54441B05F86 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC5F26DE43DDE3F7B805F606 /* Assets.xcassets */; };
+		93E65E8DD5281F0994AF3979 /* AudioInputLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0384FBD0635B79C5536B00 /* AudioInputLevel.swift */; };
+		96E20A78100CE96742B44EA8 /* GelCompanion.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E0F2E5AABB999611EABB15 /* GelCompanion.swift */; };
+		971203D66EA5725FD2535E7A /* GelLinkWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 10627D690813B27E020CE0B8 /* GelLinkWatch.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		9CF2E6CD86733FEC324F3AEB /* SignalPipeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1B3CDABFAC060B7F25813F /* SignalPipeline.swift */; };
+		A44AD119FFF97A76C52DFCF4 /* VoicePipeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4FEF2931B5A968D5773EA3 /* VoicePipeline.swift */; };
+		AC26F88CDD8E2501766347CD /* ConversationPipeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7146229C58DCE5F69A4E39 /* ConversationPipeline.swift */; };
+		ACA9D2497BEF4E4955D86B87 /* HapticCadence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409DB7743C6F5C7FB83737DF /* HapticCadence.swift */; };
+		B1174B439BCBED41E87AD0C4 /* VoiceCircumplex.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 0AC4533D91D278C3391F821A /* VoiceCircumplex.mlmodel */; };
+		BE2F7466CA2FB363C0F00A52 /* SpeechView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34D2E08CE171828689EB236 /* SpeechView.swift */; };
+		BEABA3E6CD0028EE01C474FC /* HealthSamples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACD90197BAD902367E0BA4C /* HealthSamples.swift */; };
+		C02C42E1336FB4DCE06A7B92 /* LabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8365A624065C4D8FDC5B0853 /* LabView.swift */; };
+		C8E209B8CD32D0DBEAC9F989 /* WhisperKit in Frameworks */ = {isa = PBXBuildFile; productRef = 9851B6FEAB0734CD56642579 /* WhisperKit */; };
+		CAAB97066F273EF778E18C19 /* HapticWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF61ACF4983C6EF2B09B76B /* HapticWindow.swift */; };
+		CB5BFD917CA8F8736F11B4DC /* GelLinkWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5D5C25128298E2054E3C40 /* GelLinkWatchApp.swift */; };
+		CD953BBE05CC07C7A1A2AAF1 /* HapticCadence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409DB7743C6F5C7FB83737DF /* HapticCadence.swift */; };
+		D6A8897405E4C885206B358C /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794CDC2D1145E96C6B308B68 /* Models.swift */; };
+		E45ECC54706F103969DEE4A1 /* DeviceClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237F95B7E07E8431D9370A16 /* DeviceClient.swift */; };
+		EE58B8874C75E64E99F6C90F /* HealthSamples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACD90197BAD902367E0BA4C /* HealthSamples.swift */; };
+		EE730404B2CB6B739867EA4A /* GelCompanion.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E0F2E5AABB999611EABB15 /* GelCompanion.swift */; };
+		FC3693D57C031A9207E396DB /* AudioEmotionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFB7A4494867EBA21D49268 /* AudioEmotionModel.swift */; };
+		2E02019EAD2462A6920AE720 /* M5LANProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B679D08B50AD3F2BE245EC3F /* M5LANProtocol.swift */; };
+		BCBC7A7256E2E621AB633331 /* M5LANProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B679D08B50AD3F2BE245EC3F /* M5LANProtocol.swift */; };
+		B4D87F389B6284AFFE8A6E80 /* M5LANClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D935F28936306664EEEB76 /* M5LANClient.swift */; };
+		3B837B859A91E496DD35EE1E /* M5LANClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D935F28936306664EEEB76 /* M5LANClient.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8ABFEA6B9B4BC457E17B0C30 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 98F54143AB4E86B28C3AFEE0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3A8CC3C987BBBB7E7E69043A;
+			remoteInfo = GelLinkWatch;
 		};
-		"7CFB7A4494867EBA21D49268" = {
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"path" = "AudioEmotionModel.swift";
-			"sourceTree" = "<group>";
-		};
-		"1F0384FBD0635B79C5536B00" = {
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"path" = "AudioInputLevel.swift";
-			"sourceTree" = "<group>";
-		};
-		"7A32502EC905AEBA317988AF" = {
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"path" = "CircumplexAudioFeatures.swift";
-			"sourceTree" = "<group>";
-		};
-		"AB7146229C58DCE5F69A4E39" = {
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"path" = "ConversationPipeline.swift";
-			"sourceTree" = "<group>";
-		};
-		"409DB7743C6F5C7FB83737DF" = {
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"path" = "HapticCadence.swift";
-			"sourceTree" = "<group>";
-		};
-		"2AF61ACF4983C6EF2B09B76B" = {
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"path" = "HapticWindow.swift";
-			"sourceTree" = "<group>";
-		};
-		"794CDC2D1145E96C6B308B68" = {
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"path" = "Models.swift";
-			"sourceTree" = "<group>";
-		};
-		"7F1B3CDABFAC060B7F25813F" = {
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"path" = "SignalPipeline.swift";
-			"sourceTree" = "<group>";
-		};
-		"DE4FEF2931B5A968D5773EA3" = {
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"path" = "VoicePipeline.swift";
-			"sourceTree" = "<group>";
-		};
-		"B4961BEF8E1FCEB9EC35BDB0" = {
-			"isa" = "PBXGroup";
-			"children" = (
-				"2C05540ACF8AD68B330D4E16",
-				"7CFB7A4494867EBA21D49268",
-				"1F0384FBD0635B79C5536B00",
-				"7A32502EC905AEBA317988AF",
-				"AB7146229C58DCE5F69A4E39",
-				"409DB7743C6F5C7FB83737DF",
-				"2AF61ACF4983C6EF2B09B76B",
-				"794CDC2D1145E96C6B308B68",
-				"7F1B3CDABFAC060B7F25813F",
-				"DE4FEF2931B5A968D5773EA3",
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		5CA1F7AE45E4A661224F7DC5 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				971203D66EA5725FD2535E7A /* GelLinkWatch.app in Embed Watch Content */,
 			);
-			"path" = "Core";
-			"sourceTree" = "<group>";
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
 		};
-		"E3E0F2E5AABB999611EABB15" = {
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"path" = "GelCompanion.swift";
-			"sourceTree" = "<group>";
-		};
-		"5ACD90197BAD902367E0BA4C" = {
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"path" = "HealthSamples.swift";
-			"sourceTree" = "<group>";
-		};
-		"8F3FED46FA91D468BAD41344" = {
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"path" = "WatchBridge.swift";
-			"sourceTree" = "<group>";
-		};
-		"6D9A4E876BE19EAEF425C09B" = {
-			"isa" = "PBXGroup";
-			"children" = (
-				"E3E0F2E5AABB999611EABB15",
-				"5ACD90197BAD902367E0BA4C",
-				"8F3FED46FA91D468BAD41344",
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		0AC4533D91D278C3391F821A /* VoiceCircumplex.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = VoiceCircumplex.mlmodel; sourceTree = "<group>"; };
+		10627D690813B27E020CE0B8 /* GelLinkWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GelLinkWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		152B73CE97EBF9F8CCC6B28C /* LabModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabModel.swift; sourceTree = "<group>"; };
+		1F0384FBD0635B79C5536B00 /* AudioInputLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioInputLevel.swift; sourceTree = "<group>"; };
+		23152BF187943F6DDD9642F5 /* WatchSessionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchSessionModel.swift; sourceTree = "<group>"; };
+		237F95B7E07E8431D9370A16 /* DeviceClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceClient.swift; sourceTree = "<group>"; };
+		2AF61ACF4983C6EF2B09B76B /* HapticWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticWindow.swift; sourceTree = "<group>"; };
+		2C05540ACF8AD68B330D4E16 /* AffectFusion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AffectFusion.swift; sourceTree = "<group>"; };
+		2F3C06053BB42C71F3F000B0 /* WatchSessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchSessionView.swift; sourceTree = "<group>"; };
+		409DB7743C6F5C7FB83737DF /* HapticCadence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticCadence.swift; sourceTree = "<group>"; };
+		45BC2EF616C3744216202257 /* GelLink.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GelLink.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		53FA29EA520D96ED18808237 /* GelLinkApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GelLinkApp.swift; sourceTree = "<group>"; };
+		5ACD90197BAD902367E0BA4C /* HealthSamples.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthSamples.swift; sourceTree = "<group>"; };
+		5DFB7FDB3984E24B03CCB02F /* Watch-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Watch-Info.plist"; sourceTree = "<group>"; };
+		73118E6630A44D6C6D19135B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		794CDC2D1145E96C6B308B68 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		7A32502EC905AEBA317988AF /* CircumplexAudioFeatures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircumplexAudioFeatures.swift; sourceTree = "<group>"; };
+		7CFB7A4494867EBA21D49268 /* AudioEmotionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioEmotionModel.swift; sourceTree = "<group>"; };
+		7D5D5C25128298E2054E3C40 /* GelLinkWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GelLinkWatchApp.swift; sourceTree = "<group>"; };
+		7F1B3CDABFAC060B7F25813F /* SignalPipeline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignalPipeline.swift; sourceTree = "<group>"; };
+		8365A624065C4D8FDC5B0853 /* LabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabView.swift; sourceTree = "<group>"; };
+		8BE510C9F1A00A055B5C0267 /* HealthReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthReader.swift; sourceTree = "<group>"; };
+		8E55401FB721C828F672BAD0 /* SpeechModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechModel.swift; sourceTree = "<group>"; };
+		8F3FED46FA91D468BAD41344 /* WatchBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchBridge.swift; sourceTree = "<group>"; };
+		A34D2E08CE171828689EB236 /* SpeechView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechView.swift; sourceTree = "<group>"; };
+		AB7146229C58DCE5F69A4E39 /* ConversationPipeline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationPipeline.swift; sourceTree = "<group>"; };
+		AC5F26DE43DDE3F7B805F606 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B3BAA1DE4B81491FFE9123E0 /* iOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iOS-Info.plist"; sourceTree = "<group>"; };
+		D2B1CBC211B1C9BE17D819B6 /* VoiceCircumplex.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = VoiceCircumplex.json; sourceTree = "<group>"; };
+		DBA4C56442536808E59E7A68 /* HealthKit.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = HealthKit.entitlements; sourceTree = "<group>"; };
+		DE4FEF2931B5A968D5773EA3 /* VoicePipeline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoicePipeline.swift; sourceTree = "<group>"; };
+		E3E0F2E5AABB999611EABB15 /* GelCompanion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GelCompanion.swift; sourceTree = "<group>"; };
+		F898A61440E913686CD4C54E /* Defaults.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Defaults.xcconfig; sourceTree = "<group>"; };
+		B679D08B50AD3F2BE245EC3F /* M5LANProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = M5LANProtocol.swift; sourceTree = "<group>"; };
+		F7D935F28936306664EEEB76 /* M5LANClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = M5LANClient.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		725F686847444B4E82FC9DF4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C8E209B8CD32D0DBEAC9F989 /* WhisperKit in Frameworks */,
 			);
-			"path" = "Shared";
-			"sourceTree" = "<group>";
+			runOnlyForDeploymentPostprocessing = 0;
 		};
-		"73118E6630A44D6C6D19135B" = {
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "folder.assetcatalog";
-			"path" = "Assets.xcassets";
-			"sourceTree" = "<group>";
-		};
-		"237F95B7E07E8431D9370A16" = {
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"path" = "DeviceClient.swift";
-			"sourceTree" = "<group>";
-		};
-		"53FA29EA520D96ED18808237" = {
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"path" = "GelLinkApp.swift";
-			"sourceTree" = "<group>";
-		};
-		"8BE510C9F1A00A055B5C0267" = {
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"path" = "HealthReader.swift";
-			"sourceTree" = "<group>";
-		};
-		"152B73CE97EBF9F8CCC6B28C" = {
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"path" = "LabModel.swift";
-			"sourceTree" = "<group>";
-		};
-		"8365A624065C4D8FDC5B0853" = {
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"path" = "LabView.swift";
-			"sourceTree" = "<group>";
-		};
-		"D2B1CBC211B1C9BE17D819B6" = {
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "text.json";
-			"path" = "VoiceCircumplex.json";
-			"sourceTree" = "<group>";
-		};
-		"0AC4533D91D278C3391F821A" = {
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "file.mlmodel";
-			"path" = "VoiceCircumplex.mlmodel";
-			"sourceTree" = "<group>";
-		};
-		"F257EBAC84A0E9D74D18DCD0" = {
-			"isa" = "PBXGroup";
-			"children" = (
-				"D2B1CBC211B1C9BE17D819B6",
-				"0AC4533D91D278C3391F821A",
+		BA5063CACC2A82281E5764F5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
-			"path" = "Models";
-			"sourceTree" = "<group>";
+			runOnlyForDeploymentPostprocessing = 0;
 		};
-		"8E55401FB721C828F672BAD0" = {
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"path" = "SpeechModel.swift";
-			"sourceTree" = "<group>";
-		};
-		"A34D2E08CE171828689EB236" = {
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"path" = "SpeechView.swift";
-			"sourceTree" = "<group>";
-		};
-		"BD6609511A332AF80CAD0FE8" = {
-			"isa" = "PBXGroup";
-			"children" = (
-				"73118E6630A44D6C6D19135B",
-				"237F95B7E07E8431D9370A16",
-				"53FA29EA520D96ED18808237",
-				"8BE510C9F1A00A055B5C0267",
-				"152B73CE97EBF9F8CCC6B28C",
-				"8365A624065C4D8FDC5B0853",
-				"F257EBAC84A0E9D74D18DCD0",
-				"8E55401FB721C828F672BAD0",
-				"A34D2E08CE171828689EB236",
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6D9A4E876BE19EAEF425C09B /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				E3E0F2E5AABB999611EABB15 /* GelCompanion.swift */,
+				5ACD90197BAD902367E0BA4C /* HealthSamples.swift */,
+				8F3FED46FA91D468BAD41344 /* WatchBridge.swift */,
 			);
-			"path" = "iOS";
-			"sourceTree" = "<group>";
+			path = Shared;
+			sourceTree = "<group>";
 		};
-		"AC5F26DE43DDE3F7B805F606" = {
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "folder.assetcatalog";
-			"path" = "Assets.xcassets";
-			"sourceTree" = "<group>";
-		};
-		"7D5D5C25128298E2054E3C40" = {
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"path" = "GelLinkWatchApp.swift";
-			"sourceTree" = "<group>";
-		};
-		"23152BF187943F6DDD9642F5" = {
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"path" = "WatchSessionModel.swift";
-			"sourceTree" = "<group>";
-		};
-		"2F3C06053BB42C71F3F000B0" = {
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"path" = "WatchSessionView.swift";
-			"sourceTree" = "<group>";
-		};
-		"B894A866AE6A19B0C3B45F68" = {
-			"isa" = "PBXGroup";
-			"children" = (
-				"AC5F26DE43DDE3F7B805F606",
-				"7D5D5C25128298E2054E3C40",
-				"23152BF187943F6DDD9642F5",
-				"2F3C06053BB42C71F3F000B0",
+		B28B7AF69320201D1CF206EB = {
+			isa = PBXGroup;
+			children = (
+				B4961BEF8E1FCEB9EC35BDB0 /* Core */,
+				6D9A4E876BE19EAEF425C09B /* Shared */,
+				BD6609511A332AF80CAD0FE8 /* iOS */,
+				B894A866AE6A19B0C3B45F68 /* Watch */,
+				E3C0FDEDDE6DA7B5A44244EF /* Config */,
+				FBDC4F23F93125BBEEAE800C /* Products */,
 			);
-			"path" = "Watch";
-			"sourceTree" = "<group>";
+			sourceTree = "<group>";
 		};
-		"F898A61440E913686CD4C54E" = {
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "text.xcconfig";
-			"path" = "Defaults.xcconfig";
-			"sourceTree" = "<group>";
-		};
-		"DBA4C56442536808E59E7A68" = {
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "text.plist.xml";
-			"path" = "HealthKit.entitlements";
-			"sourceTree" = "<group>";
-		};
-		"5DFB7FDB3984E24B03CCB02F" = {
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "text.plist.xml";
-			"path" = "Watch-Info.plist";
-			"sourceTree" = "<group>";
-		};
-		"B3BAA1DE4B81491FFE9123E0" = {
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "text.plist.xml";
-			"path" = "iOS-Info.plist";
-			"sourceTree" = "<group>";
-		};
-		"E3C0FDEDDE6DA7B5A44244EF" = {
-			"isa" = "PBXGroup";
-			"children" = (
-				"F898A61440E913686CD4C54E",
-				"DBA4C56442536808E59E7A68",
-				"5DFB7FDB3984E24B03CCB02F",
-				"B3BAA1DE4B81491FFE9123E0",
+		B4961BEF8E1FCEB9EC35BDB0 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				F7D935F28936306664EEEB76 /* M5LANClient.swift */,
+				B679D08B50AD3F2BE245EC3F /* M5LANProtocol.swift */,
+				2C05540ACF8AD68B330D4E16 /* AffectFusion.swift */,
+				7CFB7A4494867EBA21D49268 /* AudioEmotionModel.swift */,
+				1F0384FBD0635B79C5536B00 /* AudioInputLevel.swift */,
+				7A32502EC905AEBA317988AF /* CircumplexAudioFeatures.swift */,
+				AB7146229C58DCE5F69A4E39 /* ConversationPipeline.swift */,
+				409DB7743C6F5C7FB83737DF /* HapticCadence.swift */,
+				2AF61ACF4983C6EF2B09B76B /* HapticWindow.swift */,
+				794CDC2D1145E96C6B308B68 /* Models.swift */,
+				7F1B3CDABFAC060B7F25813F /* SignalPipeline.swift */,
+				DE4FEF2931B5A968D5773EA3 /* VoicePipeline.swift */,
 			);
-			"path" = "Config";
-			"sourceTree" = "<group>";
+			path = Core;
+			sourceTree = "<group>";
 		};
-		"4F0279AAB27CFB246DD79B53" = {
-			"isa" = "XCRemoteSwiftPackageReference";
-			"repositoryURL" = "https://github.com/argmaxinc/argmax-oss-swift.git";
-			"requirement" = {
-				"kind" = "exactVersion";
-				"version" = "1.1.0";
-			};
-		};
-		"9851B6FEAB0734CD56642579" = {
-			"isa" = "XCSwiftPackageProductDependency";
-			"package" = "4F0279AAB27CFB246DD79B53";
-			"productName" = "WhisperKit";
-		};
-		"45BC2EF616C3744216202257" = {
-			"isa" = "PBXFileReference";
-			"explicitFileType" = "wrapper.application";
-			"includeInIndex" = "0";
-			"path" = "GelLink.app";
-			"sourceTree" = "BUILT_PRODUCTS_DIR";
-		};
-		"10627D690813B27E020CE0B8" = {
-			"isa" = "PBXFileReference";
-			"explicitFileType" = "wrapper.application";
-			"includeInIndex" = "0";
-			"path" = "GelLinkWatch.app";
-			"sourceTree" = "BUILT_PRODUCTS_DIR";
-		};
-		"FBDC4F23F93125BBEEAE800C" = {
-			"isa" = "PBXGroup";
-			"children" = (
-				"45BC2EF616C3744216202257",
-				"10627D690813B27E020CE0B8",
+		B894A866AE6A19B0C3B45F68 /* Watch */ = {
+			isa = PBXGroup;
+			children = (
+				AC5F26DE43DDE3F7B805F606 /* Assets.xcassets */,
+				7D5D5C25128298E2054E3C40 /* GelLinkWatchApp.swift */,
+				23152BF187943F6DDD9642F5 /* WatchSessionModel.swift */,
+				2F3C06053BB42C71F3F000B0 /* WatchSessionView.swift */,
 			);
-			"name" = "Products";
-			"sourceTree" = "<group>";
+			path = Watch;
+			sourceTree = "<group>";
 		};
-		"B28B7AF69320201D1CF206EB" = {
-			"isa" = "PBXGroup";
-			"children" = (
-				"B4961BEF8E1FCEB9EC35BDB0",
-				"6D9A4E876BE19EAEF425C09B",
-				"BD6609511A332AF80CAD0FE8",
-				"B894A866AE6A19B0C3B45F68",
-				"E3C0FDEDDE6DA7B5A44244EF",
-				"FBDC4F23F93125BBEEAE800C",
+		BD6609511A332AF80CAD0FE8 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				73118E6630A44D6C6D19135B /* Assets.xcassets */,
+				237F95B7E07E8431D9370A16 /* DeviceClient.swift */,
+				53FA29EA520D96ED18808237 /* GelLinkApp.swift */,
+				8BE510C9F1A00A055B5C0267 /* HealthReader.swift */,
+				152B73CE97EBF9F8CCC6B28C /* LabModel.swift */,
+				8365A624065C4D8FDC5B0853 /* LabView.swift */,
+				F257EBAC84A0E9D74D18DCD0 /* Models */,
+				8E55401FB721C828F672BAD0 /* SpeechModel.swift */,
+				A34D2E08CE171828689EB236 /* SpeechView.swift */,
 			);
-			"sourceTree" = "<group>";
+			path = iOS;
+			sourceTree = "<group>";
 		};
-		"1BF5F80911474A8AA7A3A47A" = {
-			"isa" = "PBXBuildFile";
-			"fileRef" = "2C05540ACF8AD68B330D4E16";
-		};
-		"FC3693D57C031A9207E396DB" = {
-			"isa" = "PBXBuildFile";
-			"fileRef" = "7CFB7A4494867EBA21D49268";
-		};
-		"01F628DAF8957FBF38A5679C" = {
-			"isa" = "PBXBuildFile";
-			"fileRef" = "1F0384FBD0635B79C5536B00";
-		};
-		"92394C99536A79A3227FB907" = {
-			"isa" = "PBXBuildFile";
-			"fileRef" = "7A32502EC905AEBA317988AF";
-		};
-		"AC26F88CDD8E2501766347CD" = {
-			"isa" = "PBXBuildFile";
-			"fileRef" = "AB7146229C58DCE5F69A4E39";
-		};
-		"ACA9D2497BEF4E4955D86B87" = {
-			"isa" = "PBXBuildFile";
-			"fileRef" = "409DB7743C6F5C7FB83737DF";
-		};
-		"7BDE941823198E67C80A3D05" = {
-			"isa" = "PBXBuildFile";
-			"fileRef" = "2AF61ACF4983C6EF2B09B76B";
-		};
-		"8FD7E47591B999F9F789B7B5" = {
-			"isa" = "PBXBuildFile";
-			"fileRef" = "794CDC2D1145E96C6B308B68";
-		};
-		"686051355E4ED31ABA1A622C" = {
-			"isa" = "PBXBuildFile";
-			"fileRef" = "7F1B3CDABFAC060B7F25813F";
-		};
-		"A44AD119FFF97A76C52DFCF4" = {
-			"isa" = "PBXBuildFile";
-			"fileRef" = "DE4FEF2931B5A968D5773EA3";
-		};
-		"96E20A78100CE96742B44EA8" = {
-			"isa" = "PBXBuildFile";
-			"fileRef" = "E3E0F2E5AABB999611EABB15";
-		};
-		"EE58B8874C75E64E99F6C90F" = {
-			"isa" = "PBXBuildFile";
-			"fileRef" = "5ACD90197BAD902367E0BA4C";
-		};
-		"80CA927B17178739F9F4FCC6" = {
-			"isa" = "PBXBuildFile";
-			"fileRef" = "8F3FED46FA91D468BAD41344";
-		};
-		"CB5BFD917CA8F8736F11B4DC" = {
-			"isa" = "PBXBuildFile";
-			"fileRef" = "7D5D5C25128298E2054E3C40";
-		};
-		"296D3B8296549189192C219A" = {
-			"isa" = "PBXBuildFile";
-			"fileRef" = "23152BF187943F6DDD9642F5";
-		};
-		"1146F1F5464F32B38AEFAA77" = {
-			"isa" = "PBXBuildFile";
-			"fileRef" = "2F3C06053BB42C71F3F000B0";
-		};
-		"915A849127D78088C77D5AC3" = {
-			"isa" = "PBXSourcesBuildPhase";
-			"buildActionMask" = "2147483647";
-			"files" = (
-				"1BF5F80911474A8AA7A3A47A",
-				"FC3693D57C031A9207E396DB",
-				"01F628DAF8957FBF38A5679C",
-				"92394C99536A79A3227FB907",
-				"AC26F88CDD8E2501766347CD",
-				"ACA9D2497BEF4E4955D86B87",
-				"7BDE941823198E67C80A3D05",
-				"8FD7E47591B999F9F789B7B5",
-				"686051355E4ED31ABA1A622C",
-				"A44AD119FFF97A76C52DFCF4",
-				"96E20A78100CE96742B44EA8",
-				"EE58B8874C75E64E99F6C90F",
-				"80CA927B17178739F9F4FCC6",
-				"CB5BFD917CA8F8736F11B4DC",
-				"296D3B8296549189192C219A",
-				"1146F1F5464F32B38AEFAA77",
+		E3C0FDEDDE6DA7B5A44244EF /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				F898A61440E913686CD4C54E /* Defaults.xcconfig */,
+				DBA4C56442536808E59E7A68 /* HealthKit.entitlements */,
+				5DFB7FDB3984E24B03CCB02F /* Watch-Info.plist */,
+				B3BAA1DE4B81491FFE9123E0 /* iOS-Info.plist */,
 			);
-			"runOnlyForDeploymentPostprocessing" = "0";
+			path = Config;
+			sourceTree = "<group>";
 		};
-		"92C564F34EC4A54441B05F86" = {
-			"isa" = "PBXBuildFile";
-			"fileRef" = "AC5F26DE43DDE3F7B805F606";
-		};
-		"5B015B89A3A652C983CE5BE8" = {
-			"isa" = "PBXResourcesBuildPhase";
-			"buildActionMask" = "2147483647";
-			"files" = (
-				"92C564F34EC4A54441B05F86",
+		F257EBAC84A0E9D74D18DCD0 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D2B1CBC211B1C9BE17D819B6 /* VoiceCircumplex.json */,
+				0AC4533D91D278C3391F821A /* VoiceCircumplex.mlmodel */,
 			);
-			"runOnlyForDeploymentPostprocessing" = "0";
+			path = Models;
+			sourceTree = "<group>";
 		};
-		"BA5063CACC2A82281E5764F5" = {
-			"isa" = "PBXFrameworksBuildPhase";
-			"buildActionMask" = "2147483647";
-			"files" = (
+		FBDC4F23F93125BBEEAE800C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				45BC2EF616C3744216202257 /* GelLink.app */,
+				10627D690813B27E020CE0B8 /* GelLinkWatch.app */,
 			);
-			"runOnlyForDeploymentPostprocessing" = "0";
+			name = Products;
+			sourceTree = "<group>";
 		};
-		"43F2F36BC56A3CDBE2808B13" = {
-			"isa" = "XCBuildConfiguration";
-			"name" = "Debug";
-			"buildSettings" = {
-				"SWIFT_VERSION" = "5.0";
-				"CODE_SIGN_STYLE" = "Automatic";
-				"CURRENT_PROJECT_VERSION" = "5";
-				"MARKETING_VERSION" = "0.3.2";
-				"GENERATE_INFOPLIST_FILE" = "NO";
-				"CODE_SIGN_ENTITLEMENTS" = "Config/HealthKit.entitlements";
-				"PRODUCT_NAME" = "$(TARGET_NAME)";
-				"ENABLE_PREVIEWS" = "YES";
-				"ASSETCATALOG_COMPILER_APPICON_NAME" = "AppIcon";
-				"SDKROOT" = "watchos";
-				"SUPPORTED_PLATFORMS" = "watchos watchsimulator";
-				"WATCHOS_DEPLOYMENT_TARGET" = "10.0";
-				"TARGETED_DEVICE_FAMILY" = "4";
-				"PRODUCT_BUNDLE_IDENTIFIER" = "$(GELLINK_BUNDLE_ID).watchapp";
-				"INFOPLIST_FILE" = "Config/Watch-Info.plist";
-				"SKIP_INSTALL" = "YES";
-				"SWIFT_OPTIMIZATION_LEVEL" = "-Onone";
-			};
-		};
-		"294EF9DEAA7E2CB318EB695F" = {
-			"isa" = "XCBuildConfiguration";
-			"name" = "Release";
-			"buildSettings" = {
-				"SWIFT_VERSION" = "5.0";
-				"CODE_SIGN_STYLE" = "Automatic";
-				"CURRENT_PROJECT_VERSION" = "5";
-				"MARKETING_VERSION" = "0.3.2";
-				"GENERATE_INFOPLIST_FILE" = "NO";
-				"CODE_SIGN_ENTITLEMENTS" = "Config/HealthKit.entitlements";
-				"PRODUCT_NAME" = "$(TARGET_NAME)";
-				"ENABLE_PREVIEWS" = "YES";
-				"ASSETCATALOG_COMPILER_APPICON_NAME" = "AppIcon";
-				"SDKROOT" = "watchos";
-				"SUPPORTED_PLATFORMS" = "watchos watchsimulator";
-				"WATCHOS_DEPLOYMENT_TARGET" = "10.0";
-				"TARGETED_DEVICE_FAMILY" = "4";
-				"PRODUCT_BUNDLE_IDENTIFIER" = "$(GELLINK_BUNDLE_ID).watchapp";
-				"INFOPLIST_FILE" = "Config/Watch-Info.plist";
-				"SKIP_INSTALL" = "YES";
-				"SWIFT_OPTIMIZATION_LEVEL" = "-O";
-			};
-		};
-		"3E7EE279473963662EA0A502" = {
-			"isa" = "XCConfigurationList";
-			"buildConfigurations" = (
-				"43F2F36BC56A3CDBE2808B13",
-				"294EF9DEAA7E2CB318EB695F",
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3A8CC3C987BBBB7E7E69043A /* GelLinkWatch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3E7EE279473963662EA0A502 /* Build configuration list for PBXNativeTarget "GelLinkWatch" */;
+			buildPhases = (
+				915A849127D78088C77D5AC3 /* Sources */,
+				BA5063CACC2A82281E5764F5 /* Frameworks */,
+				5B015B89A3A652C983CE5BE8 /* Resources */,
 			);
-			"defaultConfigurationIsVisible" = "0";
-			"defaultConfigurationName" = "Release";
-		};
-		"3A8CC3C987BBBB7E7E69043A" = {
-			"isa" = "PBXNativeTarget";
-			"name" = "GelLinkWatch";
-			"productName" = "GelLinkWatch";
-			"productReference" = "10627D690813B27E020CE0B8";
-			"productType" = "com.apple.product-type.application";
-			"buildConfigurationList" = "3E7EE279473963662EA0A502";
-			"buildPhases" = (
-				"915A849127D78088C77D5AC3",
-				"BA5063CACC2A82281E5764F5",
-				"5B015B89A3A652C983CE5BE8",
+			buildRules = (
 			);
-			"buildRules" = (
+			dependencies = (
 			);
-			"dependencies" = (
+			name = GelLinkWatch;
+			packageProductDependencies = (
 			);
-			"packageProductDependencies" = (
+			productName = GelLinkWatch;
+			productReference = 10627D690813B27E020CE0B8 /* GelLinkWatch.app */;
+			productType = "com.apple.product-type.application";
+		};
+		DDEB5664E9F9AAEE4ED6E027 /* GelLink */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9D99F207F3372655899A8E34 /* Build configuration list for PBXNativeTarget "GelLink" */;
+			buildPhases = (
+				3C0264A60632F8B4C915A1CA /* Sources */,
+				725F686847444B4E82FC9DF4 /* Frameworks */,
+				E72F4416C3B9D6D1F1E1628D /* Resources */,
+				5CA1F7AE45E4A661224F7DC5 /* Embed Watch Content */,
 			);
-		};
-		"8ABFEA6B9B4BC457E17B0C30" = {
-			"isa" = "PBXContainerItemProxy";
-			"containerPortal" = "98F54143AB4E86B28C3AFEE0";
-			"proxyType" = "1";
-			"remoteGlobalIDString" = "3A8CC3C987BBBB7E7E69043A";
-			"remoteInfo" = "GelLinkWatch";
-		};
-		"07146420475A49F0CF3E498C" = {
-			"isa" = "PBXTargetDependency";
-			"target" = "3A8CC3C987BBBB7E7E69043A";
-			"targetProxy" = "8ABFEA6B9B4BC457E17B0C30";
-		};
-		"971203D66EA5725FD2535E7A" = {
-			"isa" = "PBXBuildFile";
-			"fileRef" = "10627D690813B27E020CE0B8";
-			"settings" = {
-				"ATTRIBUTES" = (
-					"RemoveHeadersOnCopy",
-				);
-			};
-		};
-		"5CA1F7AE45E4A661224F7DC5" = {
-			"isa" = "PBXCopyFilesBuildPhase";
-			"name" = "Embed Watch Content";
-			"buildActionMask" = "2147483647";
-			"dstPath" = "$(CONTENTS_FOLDER_PATH)/Watch";
-			"dstSubfolderSpec" = "16";
-			"files" = (
-				"971203D66EA5725FD2535E7A",
+			buildRules = (
 			);
-			"runOnlyForDeploymentPostprocessing" = "0";
-		};
-		"3C2749DCAF6F31E6800A0610" = {
-			"isa" = "PBXBuildFile";
-			"fileRef" = "2C05540ACF8AD68B330D4E16";
-		};
-		"1423A0EA6DBE995232206ADF" = {
-			"isa" = "PBXBuildFile";
-			"fileRef" = "7CFB7A4494867EBA21D49268";
-		};
-		"93E65E8DD5281F0994AF3979" = {
-			"isa" = "PBXBuildFile";
-			"fileRef" = "1F0384FBD0635B79C5536B00";
-		};
-		"6648E1D97566FCA613AA8F25" = {
-			"isa" = "PBXBuildFile";
-			"fileRef" = "7A32502EC905AEBA317988AF";
-		};
-		"9160C4A57BD46B50D2242EF0" = {
-			"isa" = "PBXBuildFile";
-			"fileRef" = "AB7146229C58DCE5F69A4E39";
-		};
-		"CD953BBE05CC07C7A1A2AAF1" = {
-			"isa" = "PBXBuildFile";
-			"fileRef" = "409DB7743C6F5C7FB83737DF";
-		};
-		"CAAB97066F273EF778E18C19" = {
-			"isa" = "PBXBuildFile";
-			"fileRef" = "2AF61ACF4983C6EF2B09B76B";
-		};
-		"D6A8897405E4C885206B358C" = {
-			"isa" = "PBXBuildFile";
-			"fileRef" = "794CDC2D1145E96C6B308B68";
-		};
-		"9CF2E6CD86733FEC324F3AEB" = {
-			"isa" = "PBXBuildFile";
-			"fileRef" = "7F1B3CDABFAC060B7F25813F";
-		};
-		"39BAAC5724AD4B458F0B9F85" = {
-			"isa" = "PBXBuildFile";
-			"fileRef" = "DE4FEF2931B5A968D5773EA3";
-		};
-		"EE730404B2CB6B739867EA4A" = {
-			"isa" = "PBXBuildFile";
-			"fileRef" = "E3E0F2E5AABB999611EABB15";
-		};
-		"BEABA3E6CD0028EE01C474FC" = {
-			"isa" = "PBXBuildFile";
-			"fileRef" = "5ACD90197BAD902367E0BA4C";
-		};
-		"6A3B40D87FDEEFF8D1839658" = {
-			"isa" = "PBXBuildFile";
-			"fileRef" = "8F3FED46FA91D468BAD41344";
-		};
-		"E45ECC54706F103969DEE4A1" = {
-			"isa" = "PBXBuildFile";
-			"fileRef" = "237F95B7E07E8431D9370A16";
-		};
-		"50A4C4673A61849FC827E340" = {
-			"isa" = "PBXBuildFile";
-			"fileRef" = "53FA29EA520D96ED18808237";
-		};
-		"8B63287BD249EE095A107115" = {
-			"isa" = "PBXBuildFile";
-			"fileRef" = "8BE510C9F1A00A055B5C0267";
-		};
-		"6C99BA16335928FCB8CA8F35" = {
-			"isa" = "PBXBuildFile";
-			"fileRef" = "152B73CE97EBF9F8CCC6B28C";
-		};
-		"C02C42E1336FB4DCE06A7B92" = {
-			"isa" = "PBXBuildFile";
-			"fileRef" = "8365A624065C4D8FDC5B0853";
-		};
-		"B1174B439BCBED41E87AD0C4" = {
-			"isa" = "PBXBuildFile";
-			"fileRef" = "0AC4533D91D278C3391F821A";
-		};
-		"0D7B4DB976B92B330E90A0B1" = {
-			"isa" = "PBXBuildFile";
-			"fileRef" = "8E55401FB721C828F672BAD0";
-		};
-		"BE2F7466CA2FB363C0F00A52" = {
-			"isa" = "PBXBuildFile";
-			"fileRef" = "A34D2E08CE171828689EB236";
-		};
-		"3C0264A60632F8B4C915A1CA" = {
-			"isa" = "PBXSourcesBuildPhase";
-			"buildActionMask" = "2147483647";
-			"files" = (
-				"3C2749DCAF6F31E6800A0610",
-				"1423A0EA6DBE995232206ADF",
-				"93E65E8DD5281F0994AF3979",
-				"6648E1D97566FCA613AA8F25",
-				"9160C4A57BD46B50D2242EF0",
-				"CD953BBE05CC07C7A1A2AAF1",
-				"CAAB97066F273EF778E18C19",
-				"D6A8897405E4C885206B358C",
-				"9CF2E6CD86733FEC324F3AEB",
-				"39BAAC5724AD4B458F0B9F85",
-				"EE730404B2CB6B739867EA4A",
-				"BEABA3E6CD0028EE01C474FC",
-				"6A3B40D87FDEEFF8D1839658",
-				"E45ECC54706F103969DEE4A1",
-				"50A4C4673A61849FC827E340",
-				"8B63287BD249EE095A107115",
-				"6C99BA16335928FCB8CA8F35",
-				"C02C42E1336FB4DCE06A7B92",
-				"B1174B439BCBED41E87AD0C4",
-				"0D7B4DB976B92B330E90A0B1",
-				"BE2F7466CA2FB363C0F00A52",
+			dependencies = (
+				07146420475A49F0CF3E498C /* PBXTargetDependency */,
 			);
-			"runOnlyForDeploymentPostprocessing" = "0";
-		};
-		"911E5DF42E1AB1BF5280803A" = {
-			"isa" = "PBXBuildFile";
-			"fileRef" = "73118E6630A44D6C6D19135B";
-		};
-		"8F20472124020C72C91CF37D" = {
-			"isa" = "PBXBuildFile";
-			"fileRef" = "D2B1CBC211B1C9BE17D819B6";
-		};
-		"E72F4416C3B9D6D1F1E1628D" = {
-			"isa" = "PBXResourcesBuildPhase";
-			"buildActionMask" = "2147483647";
-			"files" = (
-				"911E5DF42E1AB1BF5280803A",
-				"8F20472124020C72C91CF37D",
+			name = GelLink;
+			packageProductDependencies = (
+				9851B6FEAB0734CD56642579 /* WhisperKit */,
 			);
-			"runOnlyForDeploymentPostprocessing" = "0";
+			productName = GelLink;
+			productReference = 45BC2EF616C3744216202257 /* GelLink.app */;
+			productType = "com.apple.product-type.application";
 		};
-		"C8E209B8CD32D0DBEAC9F989" = {
-			"isa" = "PBXBuildFile";
-			"productRef" = "9851B6FEAB0734CD56642579";
-		};
-		"725F686847444B4E82FC9DF4" = {
-			"isa" = "PBXFrameworksBuildPhase";
-			"buildActionMask" = "2147483647";
-			"files" = (
-				"C8E209B8CD32D0DBEAC9F989",
-			);
-			"runOnlyForDeploymentPostprocessing" = "0";
-		};
-		"A4065EB134733EC2A83A2B8A" = {
-			"isa" = "XCBuildConfiguration";
-			"name" = "Debug";
-			"buildSettings" = {
-				"SWIFT_VERSION" = "5.0";
-				"CODE_SIGN_STYLE" = "Automatic";
-				"CURRENT_PROJECT_VERSION" = "5";
-				"MARKETING_VERSION" = "0.3.2";
-				"GENERATE_INFOPLIST_FILE" = "NO";
-				"CODE_SIGN_ENTITLEMENTS" = "Config/HealthKit.entitlements";
-				"PRODUCT_NAME" = "$(TARGET_NAME)";
-				"ENABLE_PREVIEWS" = "YES";
-				"ASSETCATALOG_COMPILER_APPICON_NAME" = "AppIcon";
-				"SDKROOT" = "iphoneos";
-				"SUPPORTED_PLATFORMS" = "iphoneos iphonesimulator";
-				"IPHONEOS_DEPLOYMENT_TARGET" = "17.0";
-				"TARGETED_DEVICE_FAMILY" = "1,2";
-				"PRODUCT_BUNDLE_IDENTIFIER" = "$(GELLINK_BUNDLE_ID)";
-				"INFOPLIST_FILE" = "Config/iOS-Info.plist";
-				"SWIFT_OPTIMIZATION_LEVEL" = "-Onone";
-			};
-		};
-		"D01A19F54598650ECC410BA4" = {
-			"isa" = "XCBuildConfiguration";
-			"name" = "Release";
-			"buildSettings" = {
-				"SWIFT_VERSION" = "5.0";
-				"CODE_SIGN_STYLE" = "Automatic";
-				"CURRENT_PROJECT_VERSION" = "5";
-				"MARKETING_VERSION" = "0.3.2";
-				"GENERATE_INFOPLIST_FILE" = "NO";
-				"CODE_SIGN_ENTITLEMENTS" = "Config/HealthKit.entitlements";
-				"PRODUCT_NAME" = "$(TARGET_NAME)";
-				"ENABLE_PREVIEWS" = "YES";
-				"ASSETCATALOG_COMPILER_APPICON_NAME" = "AppIcon";
-				"SDKROOT" = "iphoneos";
-				"SUPPORTED_PLATFORMS" = "iphoneos iphonesimulator";
-				"IPHONEOS_DEPLOYMENT_TARGET" = "17.0";
-				"TARGETED_DEVICE_FAMILY" = "1,2";
-				"PRODUCT_BUNDLE_IDENTIFIER" = "$(GELLINK_BUNDLE_ID)";
-				"INFOPLIST_FILE" = "Config/iOS-Info.plist";
-				"SWIFT_OPTIMIZATION_LEVEL" = "-O";
-			};
-		};
-		"9D99F207F3372655899A8E34" = {
-			"isa" = "XCConfigurationList";
-			"buildConfigurations" = (
-				"A4065EB134733EC2A83A2B8A",
-				"D01A19F54598650ECC410BA4",
-			);
-			"defaultConfigurationIsVisible" = "0";
-			"defaultConfigurationName" = "Release";
-		};
-		"DDEB5664E9F9AAEE4ED6E027" = {
-			"isa" = "PBXNativeTarget";
-			"name" = "GelLink";
-			"productName" = "GelLink";
-			"productReference" = "45BC2EF616C3744216202257";
-			"productType" = "com.apple.product-type.application";
-			"buildConfigurationList" = "9D99F207F3372655899A8E34";
-			"buildPhases" = (
-				"3C0264A60632F8B4C915A1CA",
-				"725F686847444B4E82FC9DF4",
-				"E72F4416C3B9D6D1F1E1628D",
-				"5CA1F7AE45E4A661224F7DC5",
-			);
-			"buildRules" = (
-			);
-			"dependencies" = (
-				"07146420475A49F0CF3E498C",
-			);
-			"packageProductDependencies" = (
-				"9851B6FEAB0734CD56642579",
-			);
-		};
-		"ED8772ADEC3A6C25161BC957" = {
-			"isa" = "XCBuildConfiguration";
-			"name" = "Debug";
-			"buildSettings" = {
-				"CLANG_ENABLE_MODULES" = "YES";
-				"CLANG_ENABLE_OBJC_ARC" = "YES";
-				"ENABLE_USER_SCRIPT_SANDBOXING" = "YES";
-				"DEBUG_INFORMATION_FORMAT" = "dwarf-with-dsym";
-				"SWIFT_OPTIMIZATION_LEVEL" = "-Onone";
-			};
-			"baseConfigurationReference" = "F898A61440E913686CD4C54E";
-		};
-		"00F209874A1F7309F6DCEAA7" = {
-			"isa" = "XCBuildConfiguration";
-			"name" = "Release";
-			"buildSettings" = {
-				"CLANG_ENABLE_MODULES" = "YES";
-				"CLANG_ENABLE_OBJC_ARC" = "YES";
-				"ENABLE_USER_SCRIPT_SANDBOXING" = "YES";
-				"DEBUG_INFORMATION_FORMAT" = "dwarf-with-dsym";
-				"SWIFT_OPTIMIZATION_LEVEL" = "-O";
-			};
-			"baseConfigurationReference" = "F898A61440E913686CD4C54E";
-		};
-		"640DC9EFD529235A8D9E2727" = {
-			"isa" = "XCConfigurationList";
-			"buildConfigurations" = (
-				"ED8772ADEC3A6C25161BC957",
-				"00F209874A1F7309F6DCEAA7",
-			);
-			"defaultConfigurationIsVisible" = "0";
-			"defaultConfigurationName" = "Release";
-		};
-		"98F54143AB4E86B28C3AFEE0" = {
-			"isa" = "PBXProject";
-			"attributes" = {
-				"LastUpgradeCheck" = "1640";
-				"LastSwiftUpdateCheck" = "1640";
-				"TargetAttributes" = {
-					"DDEB5664E9F9AAEE4ED6E027" = {
-						"CreatedOnToolsVersion" = "16.4";
-						"SystemCapabilities" = {
-							"com.apple.HealthKit" = {
-								"enabled" = "1";
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		98F54143AB4E86B28C3AFEE0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1640;
+				LastUpgradeCheck = 1640;
+				TargetAttributes = {
+					3A8CC3C987BBBB7E7E69043A = {
+						CreatedOnToolsVersion = 16.4;
+						SystemCapabilities = {
+							com.apple.HealthKit = {
+								enabled = 1;
 							};
 						};
 					};
-					"3A8CC3C987BBBB7E7E69043A" = {
-						"CreatedOnToolsVersion" = "16.4";
-						"SystemCapabilities" = {
-							"com.apple.HealthKit" = {
-								"enabled" = "1";
+					DDEB5664E9F9AAEE4ED6E027 = {
+						CreatedOnToolsVersion = 16.4;
+						SystemCapabilities = {
+							com.apple.HealthKit = {
+								enabled = 1;
 							};
 						};
 					};
 				};
 			};
-			"buildConfigurationList" = "640DC9EFD529235A8D9E2727";
-			"compatibilityVersion" = "Xcode 14.0";
-			"developmentRegion" = "ja";
-			"hasScannedForEncodings" = "0";
-			"knownRegions" = (
-				"ja",
-				"en",
-				"Base",
+			buildConfigurationList = 640DC9EFD529235A8D9E2727 /* Build configuration list for PBXProject "GelLink" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = ja;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				ja,
+				en,
+				Base,
 			);
-			"mainGroup" = "B28B7AF69320201D1CF206EB";
-			"productRefGroup" = "FBDC4F23F93125BBEEAE800C";
-			"projectDirPath" = "";
-			"projectRoot" = "";
-			"targets" = (
-				"DDEB5664E9F9AAEE4ED6E027",
-				"3A8CC3C987BBBB7E7E69043A",
+			mainGroup = B28B7AF69320201D1CF206EB;
+			packageReferences = (
+				4F0279AAB27CFB246DD79B53 /* XCRemoteSwiftPackageReference "argmax-oss-swift" */,
 			);
-			"packageReferences" = (
-				"4F0279AAB27CFB246DD79B53",
+			productRefGroup = FBDC4F23F93125BBEEAE800C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DDEB5664E9F9AAEE4ED6E027 /* GelLink */,
+				3A8CC3C987BBBB7E7E69043A /* GelLinkWatch */,
 			);
 		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5B015B89A3A652C983CE5BE8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				92C564F34EC4A54441B05F86 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E72F4416C3B9D6D1F1E1628D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				911E5DF42E1AB1BF5280803A /* Assets.xcassets in Resources */,
+				8F20472124020C72C91CF37D /* VoiceCircumplex.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3C0264A60632F8B4C915A1CA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B4D87F389B6284AFFE8A6E80 /* M5LANClient.swift in Sources */,
+				2E02019EAD2462A6920AE720 /* M5LANProtocol.swift in Sources */,
+				3C2749DCAF6F31E6800A0610 /* AffectFusion.swift in Sources */,
+				1423A0EA6DBE995232206ADF /* AudioEmotionModel.swift in Sources */,
+				93E65E8DD5281F0994AF3979 /* AudioInputLevel.swift in Sources */,
+				6648E1D97566FCA613AA8F25 /* CircumplexAudioFeatures.swift in Sources */,
+				9160C4A57BD46B50D2242EF0 /* ConversationPipeline.swift in Sources */,
+				CD953BBE05CC07C7A1A2AAF1 /* HapticCadence.swift in Sources */,
+				CAAB97066F273EF778E18C19 /* HapticWindow.swift in Sources */,
+				D6A8897405E4C885206B358C /* Models.swift in Sources */,
+				9CF2E6CD86733FEC324F3AEB /* SignalPipeline.swift in Sources */,
+				39BAAC5724AD4B458F0B9F85 /* VoicePipeline.swift in Sources */,
+				EE730404B2CB6B739867EA4A /* GelCompanion.swift in Sources */,
+				BEABA3E6CD0028EE01C474FC /* HealthSamples.swift in Sources */,
+				6A3B40D87FDEEFF8D1839658 /* WatchBridge.swift in Sources */,
+				E45ECC54706F103969DEE4A1 /* DeviceClient.swift in Sources */,
+				50A4C4673A61849FC827E340 /* GelLinkApp.swift in Sources */,
+				8B63287BD249EE095A107115 /* HealthReader.swift in Sources */,
+				6C99BA16335928FCB8CA8F35 /* LabModel.swift in Sources */,
+				C02C42E1336FB4DCE06A7B92 /* LabView.swift in Sources */,
+				B1174B439BCBED41E87AD0C4 /* VoiceCircumplex.mlmodel in Sources */,
+				0D7B4DB976B92B330E90A0B1 /* SpeechModel.swift in Sources */,
+				BE2F7466CA2FB363C0F00A52 /* SpeechView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		915A849127D78088C77D5AC3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B837B859A91E496DD35EE1E /* M5LANClient.swift in Sources */,
+				BCBC7A7256E2E621AB633331 /* M5LANProtocol.swift in Sources */,
+				1BF5F80911474A8AA7A3A47A /* AffectFusion.swift in Sources */,
+				FC3693D57C031A9207E396DB /* AudioEmotionModel.swift in Sources */,
+				01F628DAF8957FBF38A5679C /* AudioInputLevel.swift in Sources */,
+				92394C99536A79A3227FB907 /* CircumplexAudioFeatures.swift in Sources */,
+				AC26F88CDD8E2501766347CD /* ConversationPipeline.swift in Sources */,
+				ACA9D2497BEF4E4955D86B87 /* HapticCadence.swift in Sources */,
+				7BDE941823198E67C80A3D05 /* HapticWindow.swift in Sources */,
+				8FD7E47591B999F9F789B7B5 /* Models.swift in Sources */,
+				686051355E4ED31ABA1A622C /* SignalPipeline.swift in Sources */,
+				A44AD119FFF97A76C52DFCF4 /* VoicePipeline.swift in Sources */,
+				96E20A78100CE96742B44EA8 /* GelCompanion.swift in Sources */,
+				EE58B8874C75E64E99F6C90F /* HealthSamples.swift in Sources */,
+				80CA927B17178739F9F4FCC6 /* WatchBridge.swift in Sources */,
+				CB5BFD917CA8F8736F11B4DC /* GelLinkWatchApp.swift in Sources */,
+				296D3B8296549189192C219A /* WatchSessionModel.swift in Sources */,
+				1146F1F5464F32B38AEFAA77 /* WatchSessionView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		07146420475A49F0CF3E498C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3A8CC3C987BBBB7E7E69043A /* GelLinkWatch */;
+			targetProxy = 8ABFEA6B9B4BC457E17B0C30 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		00F209874A1F7309F6DCEAA7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F898A61440E913686CD4C54E /* Defaults.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		294EF9DEAA7E2CB318EB695F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Config/HealthKit.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 5;
+				DEVELOPMENT_TEAM = G842TY4TL7;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "Config/Watch-Info.plist";
+				MARKETING_VERSION = 0.3.2;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(GELLINK_BUNDLE_ID).watchapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "watchos watchsimulator";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 10.0;
+			};
+			name = Release;
+		};
+		43F2F36BC56A3CDBE2808B13 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Config/HealthKit.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 5;
+				DEVELOPMENT_TEAM = G842TY4TL7;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "Config/Watch-Info.plist";
+				MARKETING_VERSION = 0.3.2;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(GELLINK_BUNDLE_ID).watchapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "watchos watchsimulator";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 10.0;
+			};
+			name = Debug;
+		};
+		A4065EB134733EC2A83A2B8A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Config/HealthKit.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 5;
+				DEVELOPMENT_TEAM = G842TY4TL7;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "Config/iOS-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 0.3.2;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(GELLINK_BUNDLE_ID)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D01A19F54598650ECC410BA4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Config/HealthKit.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 5;
+				DEVELOPMENT_TEAM = G842TY4TL7;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "Config/iOS-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 0.3.2;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(GELLINK_BUNDLE_ID)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		ED8772ADEC3A6C25161BC957 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F898A61440E913686CD4C54E /* Defaults.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3E7EE279473963662EA0A502 /* Build configuration list for PBXNativeTarget "GelLinkWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				43F2F36BC56A3CDBE2808B13 /* Debug */,
+				294EF9DEAA7E2CB318EB695F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		640DC9EFD529235A8D9E2727 /* Build configuration list for PBXProject "GelLink" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ED8772ADEC3A6C25161BC957 /* Debug */,
+				00F209874A1F7309F6DCEAA7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9D99F207F3372655899A8E34 /* Build configuration list for PBXNativeTarget "GelLink" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A4065EB134733EC2A83A2B8A /* Debug */,
+				D01A19F54598650ECC410BA4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		4F0279AAB27CFB246DD79B53 /* XCRemoteSwiftPackageReference "argmax-oss-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/argmaxinc/argmax-oss-swift.git";
+			requirement = {
+				kind = exactVersion;
+				version = 1.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9851B6FEAB0734CD56642579 /* WhisperKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4F0279AAB27CFB246DD79B53 /* XCRemoteSwiftPackageReference "argmax-oss-swift" */;
+			productName = WhisperKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
-	"rootObject" = "98F54143AB4E86B28C3AFEE0";
+	rootObject = 98F54143AB4E86B28C3AFEE0 /* Project object */;
 }

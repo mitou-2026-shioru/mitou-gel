@@ -9,6 +9,7 @@ struct LabView: View {
     @ObservedObject private var speech: SpeechModel
     @AppStorage("showDiagnostics") private var showDiagnostics = false
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
+    @FocusState private var focusedSettingsField: SettingsField?
     @State private var participant = "P01"
     @State private var impression = ""
     @State private var warmth = 4
@@ -20,6 +21,10 @@ struct LabView: View {
                                     HapticState(temperature: 0.5, stiffness: 1),
                                     HapticState(temperature: 0.75, stiffness: 1)].shuffled()
     @State private var studyIndex = 0
+
+    private enum SettingsField: Hashable {
+        case address, lanPIN
+    }
 
     init(lab: LabModel) {
         self.lab = lab
@@ -175,6 +180,14 @@ struct LabView: View {
             VStack(alignment: .leading, spacing: 18) {
                 modePicker
                 vectorMetrics
+                if lab.connectionKind == .m5Dual {
+                    VStack(alignment: .leading, spacing: 8) {
+                        LabeledContent("目標温度", value: String(format: "%.2f ℃", M5LANProtocol.targetCelsius(lab.haptic.temperature)))
+                        LabeledContent("ポンプ設定", value: String(format: "%.2f", M5LANProtocol.appliedPump(lab.haptic.stiffness)))
+                        Text("出力開始で温度制御とポンプを開始します。温度0は25℃の目標です。加熱を止めるには「停止」を押してください。")
+                            .font(.caption).foregroundStyle(.secondary)
+                    }.font(.subheadline).gelCard()
+                }
                 VStack(alignment: .leading, spacing: 12) {
                     vectorChart
                     if lab.mode != .manual {
@@ -205,7 +218,16 @@ struct LabView: View {
                         Label(error, systemImage: "exclamationmark.triangle").foregroundStyle(GelPalette.coral)
                     }
                     LabeledContent("実測温度", value: device.status?.actualTemperature.map { String(format: "%.1f °C", $0) } ?? "—")
-                    LabeledContent("実測圧力", value: device.status?.actualPressureKPa.map { String(format: "%.1f kPa", $0) } ?? "—")
+                    if let m5 = device.m5State, device.kind == .m5Dual {
+                        LabeledContent("受理した目標温度", value: String(format: "%.2f ℃", M5LANProtocol.targetCelsius(m5.target)))
+                        LabeledContent("適用ポンプ設定", value: String(format: "%.2f", m5.pump))
+                        LabeledContent("ヒーター", value: m5.heater ? (m5.heating ? "加熱中" : "温度保持") : "停止")
+                        if showDiagnostics {
+                            LabeledContent("PPS実測電圧", value: m5.voltage.map { String(format: "%.2f V", $0) } ?? "—")
+                        }
+                    } else {
+                        LabeledContent("実測圧力", value: device.status?.actualPressureKPa.map { String(format: "%.1f kPa", $0) } ?? "—")
+                    }
                     if let date = device.lastResponse {
                         LabeledContent("応答", value: date.formatted(date: .omitted, time: .standard))
                     }
@@ -292,12 +314,32 @@ struct LabView: View {
     private var settingsScreen: some View {
         Form {
             Section {
-                TextField("http://192.168.4.1", text: $lab.address)
+                Picker("接続方式", selection: $lab.connectionKind) {
+                    ForEach(DeviceConnectionKind.allCases) { kind in Text(kind.title).tag(kind) }
+                }.onChange(of: lab.connectionKind) { _, _ in
+                    focusedSettingsField = nil
+                    Task { await lab.connectionSettingsChanged() }
+                }
+                TextField(lab.connectionKind == .m5Dual ? "http://m5-control.local" : "http://192.168.4.1", text: $lab.address)
                     .keyboardType(.URL).textInputAutocapitalization(.never).autocorrectionDisabled()
+                    .focused($focusedSettingsField, equals: .address)
+                    .submitLabel(.done)
                     .onChange(of: lab.address) { _, _ in
-                        if lab.armed { Task { await lab.stop(reason: "接続先が変更されたため出力を停止しました") } }
+                        Task { await lab.connectionSettingsChanged() }
                     }
-                Button(device.connected ? "再接続" : "接続") { Task { await lab.connect() } }
+                if lab.connectionKind == .m5Dual {
+                    SecureField("M5画面のLAN PIN（8桁）", text: $lab.lanPIN)
+                        .keyboardType(.numberPad)
+                        .focused($focusedSettingsField, equals: .lanPIN)
+                        .submitLabel(.done)
+                        .onChange(of: lab.lanPIN) { _, _ in Task { await lab.connectionSettingsChanged() } }
+                    Text("M5画面のURLとLAN PINを入力してください。PINは保存せず、M5の再起動時に変わります。")
+                        .font(.caption).foregroundStyle(.secondary)
+                }
+                Button(device.connected ? "再接続" : "接続") {
+                    focusedSettingsField = nil
+                    Task { await lab.connect() }
+                }.disabled(device.busy)
                 Text(deviceSummary).font(.caption)
             } header: { Text("M5Stack") }
             Section {
@@ -317,6 +359,17 @@ struct LabView: View {
                 NavigationLink("安全とプライバシー") { usageInformation }
             }
         }.scrollContentBackground(.hidden).background(GelPalette.paper).navigationTitle("設定")
+            .scrollDismissesKeyboard(.interactively)
+            .onSubmit { focusedSettingsField = nil }
+            .onDisappear { focusedSettingsField = nil }
+            .toolbar {
+                ToolbarItemGroup(placement: .keyboard) {
+                    if focusedSettingsField != nil {
+                        Spacer()
+                        Button("完了") { focusedSettingsField = nil }
+                    }
+                }
+            }
     }
 
     private var usageInformation: some View {
@@ -326,7 +379,9 @@ struct LabView: View {
             }
             Section("安全") {
                 Text("出力の開始は手動です。入力停止・通信断・バックグラウンド移行時は出力を停止します。")
-                Text("デバイス側で6秒TTL、温度・圧力制限、センサ異常停止、独立した安全遮断を使用してください。")
+                Text(lab.connectionKind == .m5Dual
+                     ? "M5方式は通信が2秒途切れると停止します。温度指令は25〜50℃、ポンプは0 / 0.38 / 0.71 / 1の電流設定に対応し、圧力の実測値ではありません。"
+                     : "デバイス側で6秒TTL、温度・圧力制限、センサ異常停止、独立した安全遮断を使用してください。")
                 Text("温度・硬さ指令は0〜1の値です。触れる際は実測温度と装置の状態を確認してください。")
             }
             Section("プライバシー") {
@@ -347,6 +402,7 @@ struct LabView: View {
         case "active": state = "出力中"
         case "expired": state = "指令期限切れ"
         case "fault": state = "デバイス異常"
+        case "starting": state = "センサー確認中"
         default: state = "接続済み"
         }
         return state + (device.status?.simulated == true ? " · 模擬" : "")
@@ -356,7 +412,7 @@ struct LabView: View {
         HStack(spacing: 12) {
             Button { Task { await lab.startOutput() } } label: {
                 Label("出力開始", systemImage: "play.fill").frame(maxWidth: .infinity)
-            }.buttonStyle(.borderedProminent).disabled(lab.armed || !device.connected)
+            }.buttonStyle(.borderedProminent).disabled(lab.armed || !lab.canStartOutput)
             Button(role: .destructive) { Task { await lab.stop() } } label: {
                 Label("停止", systemImage: "stop.fill").frame(maxWidth: .infinity)
             }.buttonStyle(.bordered)

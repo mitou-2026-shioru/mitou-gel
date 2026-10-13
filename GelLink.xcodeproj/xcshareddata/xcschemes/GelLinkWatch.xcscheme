@@ -46,6 +46,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "3A8CC3C987BBBB7E7E69043A"
             BuildableName = "GelLinkWatch.app"
+            BlueprintName = "GelLinkWatch"
             ReferencedContainer = "container:GelLink.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -62,6 +63,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "3A8CC3C987BBBB7E7E69043A"
             BuildableName = "GelLinkWatch.app"
+            BlueprintName = "GelLinkWatch"
             ReferencedContainer = "container:GelLink.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
