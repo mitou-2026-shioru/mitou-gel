@@ -21,6 +21,9 @@ struct StudyTrial: Identifiable {
     let impression: String
     let warmth: Int
     let hardness: Int
+    let connectionKind: DeviceConnectionKind
+    let appliedTemperatureTarget: Double?
+    let appliedStiffnessTarget: Double?
 }
 
 @MainActor
@@ -40,6 +43,8 @@ final class LabModel: ObservableObject {
     @Published var simulatedHR = 75.0
     @Published var armed = false
     @Published var address = UserDefaults.standard.string(forKey: "deviceAddress") ?? "http://192.168.4.1"
+    @Published var connectionKind = DeviceConnectionKind(rawValue: UserDefaults.standard.string(forKey: "deviceConnectionKind") ?? "") ?? .gelLink
+    @Published var lanPIN = ""
     @Published var notice = ""
     @Published var trials: [StudyTrial] = []
     @Published var exportURL: URL?
@@ -57,6 +62,13 @@ final class LabModel: ObservableObject {
     private var healthTask: Task<Void, Never>?
 
     init() {
+        device.onOutputLost = { [weak self] reason in
+            guard let self, self.armed else { return }
+            self.armed = false
+            self.controlGeneration += 1
+            self.notice = reason
+            self.syncCompanion()
+        }
         bridge.onReading = { [weak self] reading in
             guard let self, self.mode == .live else { return }
             self.ingest(reading)
@@ -167,22 +179,32 @@ final class LabModel: ObservableObject {
 
     func connect() async {
         await stop(reason: "デバイスを接続しています")
-        guard device.configure(address: address) else {
+        guard device.configure(address: address, kind: connectionKind, pin: lanPIN) else {
             configuredAddress = nil
             notice = device.message
             return
         }
         configuredAddress = address
         UserDefaults.standard.set(address, forKey: "deviceAddress")
-        await device.send(state: .neutral, enabled: false)
+        UserDefaults.standard.set(connectionKind.rawValue, forKey: "deviceConnectionKind")
+        await device.connect()
         notice = device.message
+    }
+
+    var canStartOutput: Bool {
+        active && configuredAddress != nil && device.connected && !device.busy && device.status?.permitsControl == true
+            && device.matches(address: address, kind: connectionKind, pin: lanPIN)
+    }
+
+    func connectionSettingsChanged() async {
+        await stop(reason: "接続設定が変わりました。接続し直してください")
+        configuredAddress = nil
     }
 
     func startOutput() async {
         updateState()
-        guard active, device.connected, device.status?.permitsControl == true,
-              configuredAddress == address else {
-            notice = "URLを確認し、デバイスに接続してください"
+        guard canStartOutput else {
+            notice = "接続設定とM5の状態を確認し、デバイスに接続してください"
             return
         }
         guard inputFresh else {
@@ -192,10 +214,10 @@ final class LabModel: ObservableObject {
         armed = true
         let startGeneration = controlGeneration
         notice = "出力中"
-        await device.send(state: haptic, enabled: true)
+        let started = await device.start(state: haptic)
         if armed, startGeneration == controlGeneration,
-           (!device.connected || device.status?.permitsControl != true) {
-            await stop(reason: "出力を開始できませんでした")
+           (!started || !device.connected || device.status?.permitsControl != true) {
+            await stop(reason: device.message)
         }
         syncCompanion()
     }
@@ -282,7 +304,10 @@ final class LabModel: ObservableObject {
                                  actualTemperature: device.status?.actualTemperature,
                                  deviceState: device.status?.state ?? "unknown",
                                  simulated: device.status?.simulated ?? false,
-                                 impression: impression, warmth: warmth, hardness: hardness))
+                                 impression: impression, warmth: warmth, hardness: hardness,
+                                 connectionKind: device.kind,
+                                 appliedTemperatureTarget: device.status?.temperatureTarget,
+                                 appliedStiffnessTarget: device.status?.stiffnessTarget))
         notice = "体験記録を保存しました（アプリ終了時に消去・CSV書き出し可）"
     }
 
@@ -290,12 +315,15 @@ final class LabModel: ObservableObject {
         var content: String
         if study {
             content = CSV.row(["timestamp", "participant", "temperature", "stiffness", "actual_temperature_c",
-                               "device_state", "simulated", "warmth_1_7", "hardness_1_7", "impression"])
+                               "device_state", "simulated", "warmth_1_7", "hardness_1_7", "impression",
+                               "connection_kind", "applied_temperature_target", "applied_stiffness_target"])
             for trial in trials {
                 content += CSV.row([trial.date.ISO8601Format(), trial.participant,
                     String(trial.state.temperature), String(trial.state.stiffness),
                     trial.actualTemperature.map(String.init(describing:)) ?? "", trial.deviceState,
-                    String(trial.simulated), String(trial.warmth), String(trial.hardness), trial.impression])
+                    String(trial.simulated), String(trial.warmth), String(trial.hardness), trial.impression,
+                    trial.connectionKind.rawValue, trial.appliedTemperatureTarget.map(String.init(describing:)) ?? "",
+                    trial.appliedStiffnessTarget.map(String.init(describing:)) ?? ""])
             }
         } else {
             content = CSV.row(["timestamp", "mode", "source", "heart_rate", "sample_timestamp", "hrv_ms", "hrv_timestamp",
@@ -309,7 +337,9 @@ final class LabModel: ObservableObject {
                                "audio_emotion_max_probability", "audio_emotion_confidence", "audio_emotion_valence",
                                "audio_emotion_arousal", "audio_emotion_measured_at", "audio_emotion_fresh",
                                "audio_emotion_anger", "audio_emotion_disgust", "audio_emotion_fear",
-                               "audio_emotion_joy", "audio_emotion_neutral", "audio_emotion_sadness"])
+                               "audio_emotion_joy", "audio_emotion_neutral", "audio_emotion_sadness",
+                               "connection_kind", "applied_temperature_target", "applied_stiffness_target",
+                               "m5_target_c", "m5_pump_setting", "m5_heater_enabled", "m5_heating", "m5_pps_v"])
             content += logs.map(CSV.row).joined()
         }
         do {
@@ -366,7 +396,14 @@ final class LabModel: ObservableObject {
             emotion?.probabilities["fear"].map(String.init(describing:)) ?? "",
             emotion?.probabilities["joy"].map(String.init(describing:)) ?? "",
             emotion?.probabilities["neutral"].map(String.init(describing:)) ?? "",
-            emotion?.probabilities["sadness"].map(String.init(describing:)) ?? ""])
+            emotion?.probabilities["sadness"].map(String.init(describing:)) ?? "",
+            device.kind.rawValue, device.status?.temperatureTarget.map(String.init(describing:)) ?? "",
+            device.status?.stiffnessTarget.map(String.init(describing:)) ?? "",
+            device.m5State.map { String(M5LANProtocol.targetCelsius($0.target)) } ?? "",
+            device.m5State.map { String($0.pump) } ?? "",
+            device.m5State.map { String($0.heater) } ?? "",
+            device.m5State.map { String($0.heating) } ?? "",
+            device.m5State?.voltage.map(String.init(describing:)) ?? ""])
         if logs.count > 1_800 { logs.removeFirst(logs.count - 1_800) }
     }
 }

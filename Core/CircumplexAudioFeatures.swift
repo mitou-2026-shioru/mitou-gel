@@ -109,9 +109,16 @@ public enum CircumplexAudioFeatures {
             let numerator = values.indices.reduce(0.0) { $0 + (times[$1] - meanTime) * (values[$1] - mean) }
             let delta = values.count > 1 ? (1..<values.count).map { values[$0] - values[$0 - 1] } : []
             let peakThreshold = percentile(values, 0.75)
-            let peaks = values.count >= 3 ? (1..<(values.count - 1)).filter {
-                values[$0] > values[$0 - 1] && values[$0] > values[$0 + 1] && values[$0] >= peakThreshold
-            }.count : 0
+            var peaks = 0
+            if values.count >= 3 {
+                for index in 1..<(values.count - 1) {
+                    let value = values[index]
+                    let isLocalMaximum = value > values[index - 1] && value > values[index + 1]
+                    if isLocalMaximum && value >= peakThreshold {
+                        peaks += 1
+                    }
+                }
+            }
             result["\(prefix)_range"] = percentile(values, 0.9) - percentile(values, 0.1)
             result["\(prefix)_slope"] = denominator > 1e-9 ? numerator / denominator : 0
             result["\(prefix)_delta_mean_abs"] = delta.isEmpty ? 0 : delta.reduce(0) { $0 + abs($1) } / Double(delta.count)
